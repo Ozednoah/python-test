@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask World</title>
+    <link href="{{ url_for('static',filename='css/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/custom.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <header id="header" class="fixed-top">
+                    <div class="container d-flex align-items-center justify-content-between">
+                
+                      <h1 class="logo"><a href="index.html">OnePage</a></h1>
+                      <!-- Uncomment below if you prefer to use an image logo -->
+                      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                
+                      <nav id="navbar" class="navbar">
+                        <ul>
+                          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                          <li><a class="nav-link scrollto" href="/">Register</a></li>
+                          <li><a class="nav-link scrollto" href="/">Login</a></li>
+                          <li><a class="nav-link scrollto o" href="/template">Templates</a></li>
+                        </ul>
+                        <i class="bi bi-list mobile-nav-toggle"></i>
+                      </nav><!-- .navbar -->
+                
+                    </div>
+                  </header>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col text-center">
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-6">
+          {% set m=get_flashed_messages() %}
+          {% if m%}
+          {% for i in m%}
+          <div class="alert alert-info">{{i}}</div>
+          {%endfor%}
+          {%endif%}
+
+          {{data}}
+        </div>
+</body>
+</html>
